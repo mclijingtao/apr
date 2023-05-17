@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"navigation": "/pages/navigation/home/home",
+		"list": "/pages/list/home/home",
+		"recommended": "/pages/recommended/home/home",
+		"about": "/pages/about/home/home"
+	}
+}

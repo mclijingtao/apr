@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">账号设置</view>
+</cu-custom>
+
+<!-- 头像设置 -->
+<view class="cu-bar bg-white solid-bottom">
+	<view class="action">
+		<text class="cuIcon-title text-orange "></text>头像
+	</view>
+	<view class="action">
+		<block wx:if="{{!hasUserInfo}}">
+			<view class="cu-avatar radius bg-gray margin-right-lg" style="background-image: url();"></view> 
+		</block>
+		<block wx:else>
+			<view class="cu-avatar radius bg-gray margin-right-lg" style="background-image: url({{userInfo.head}});"></view>
+		</block>
+		<button class="cu-btn bg-green shadow" bindtap="" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">设置</button>
+	</view>
+</view>
+
+<!-- 密码设置 -->
+<view class="cu-bar bg-white solid-bottom shadow-lg">
+	<view class="action">
+		<text class="cuIcon-title text-orange "></text>密码
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-green shadow" bindtap="set" disabled="{{userInfo.name=='微信用户'}}">设置</button>
+	</view>
+</view>
+
+<!-- 修改密码modal -->
+<view class="cu-modal {{showModal?'show':''}}">
+	<form bindsubmit="setPassword">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">修改密码</view>
+			</view>
+			<view class="padding-xl">
+				<input name="password" class="weui-input" placeholder="请输入密码" adjust-position="true" maxlength="20" />
+			</view>
+			<view class="cu-bar bg-white justify-end">
+				<view class="action">
+					<button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+					<button class="cu-btn bg-green margin-left" form-type="submit">保存</button>
+				</view>
+			</view>
+		</view>
+	</form>
+</view>

@@ -1,0 +1,45 @@
+<!-- 导航栏 -->
+<view class="cu-bar search bg-gradual-green" style="height:calc({{CustomBar}}px + 20rpx);padding-top:calc({{StatusBar}}px - 20rpx);">
+	<view class="cu-avatar round" style="background-image:url(/image/logo.ico);"></view>
+	<view class="search-form round" style="margin-right: 210rpx;">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="搜索动漫、人物、介绍" disabled="disabled" bindtap="tosearch"></input>
+	</view>
+</view>
+
+<!-- 类别 -->
+<scroll-view scroll-x class="bg-white nav scroll solid-bottom" scroll-left="{{scrollLeft}}" style="top:calc({{CustomBar}}px + 20rpx)">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub margin-lr-xl {{index==tabCur?'text-red cur':''}}" wx:for="{{tablist}}" wx:key='id' data-id="{{index}}" bindtap="tabSelect">
+			{{item}}
+		</view>
+	</view>
+</scroll-view>
+
+<view class="VerticalBox">
+	<view class="leftnav" style="top:calc({{CustomBar}}px + 20rpx + 46px)">
+		<scroll-view class="VerticalNav nav" scroll-y scroll-with-animation>
+			<view class="cu-item {{index==navCur?'text-green cur':''}}" wx:for="{{navlist}}" wx:key='id' bindtap='navSelect' data-id="{{index}}">
+				{{item}}
+			</view>
+		</scroll-view>
+	</view>
+
+	<scroll-view class="VerticalMain" scroll-y scroll-with-animation style="margin-top:calc({{CustomBar}}px + 20rpx + 49px); height:calc(100vh - {{CustomBar}}px - 20rpx - 49px);" bindscrolltolower="ReachBottom" scroll-top="{{scrollTop}}">
+		<view class="cu-card article anime">
+			<navigator class="cu-item shadow-warp anime-item" wx:for="{{typelist}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+				<view class="title solid-bottom">
+					<view class="text-cut radiustitle ">{{item.anime_name}}</view>
+					<text class="cuIcon-roundright text-gray fr"></text>
+				</view>
+				<view class="content">
+					<image class="shadow-warp" src="{{item.anime_pic}}" mode="aspectFill"></image>
+					<view class="desc">
+						<view class="text-content">{{item.anime_content}}</view>
+					</view>
+				</view>
+			</navigator>
+		</view>
+		<view class="last"></view>
+	</scroll-view>
+</view>

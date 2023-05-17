@@ -1,0 +1,60 @@
+.cu-bar.search{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+.cu-avatar {
+	background-color: transparent;
+	border-radius: 25%;
+}
+
+.tower-swiper .tower-item {
+	transform: scale(calc(0.5 + var(--index) / 10));
+	margin-left: calc(var(--left) * 120rpx - 150rpx);
+	z-index: var(--index);
+	height: 100%;
+}
+
+.cu-card .title .text-cut{
+	height: 50px !important;
+	line-height: 50px;
+	font-size: 42rpx;
+	border-bottom: 1px solid #80808067;
+}
+
+.cu-card .title .fr {
+	font-weight: normal;
+	margin-top:20rpx ;
+}
+
+.cu-card .flex.flex-wrap {
+	padding-top: 20rpx
+}
+
+.cu-card .box{
+	float: left;
+	width: 30%;
+	margin:0 10rpx 20rpx;
+	border-radius: 15rpx;
+	border: 1px solid rgba(128, 128, 128, 0.404);
+}
+
+.cu-card .box image {
+	border-radius: 15rpx 15rpx 0 0;
+	height: 160px;
+}
+
+.cu-card .box .text-cut{
+	text-align: center;
+	font-weight:700;
+	line-height: 50rpx;
+	height: 50rpx;
+}
+
+
+.last{
+	padding-bottom: 40px!important;
+}

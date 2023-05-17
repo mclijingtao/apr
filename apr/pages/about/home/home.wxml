@@ -1,0 +1,119 @@
+<!-- 用户卡片 -->
+<view class="userbox bg-gradual-blue ">
+	<view class="card">
+		<view>
+			<block wx:if="{{!hasUserInfo}}">
+				<view class="userIco cu-avatar xl round  cuIcon-friendadd"></view><text class="text-gray">你好！请登录账号</text>
+				<button bindtap='login' class='cu-btn bg-green cuIcon-pullright'>点击登录</button>
+			</block>
+			<block wx:else>
+				<view class="userIco cu-avatar xl round login" style="background-image:url({{userInfo.head}})"></view>
+				<text>昵称：</text>
+				<view class="nickName text-cut text-green">{{userInfo.name}}</view>
+				<button class='cu-btn bg-green cuIcon-close' bindtap="exit">点击退出</button>
+			</block>
+		</view>
+	</view>
+</view>
+
+<!-- 下窗口 -->
+<view class="cu-modal bottom-modal {{showModal?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white">
+			<view class="action text-green"></view>
+			<button class="cu-btn bg-green shadow cuIcon-close" bindtap="hideModal">取消</button>
+		</view>
+		<!-- 用户登录 -->
+		<view class="padding-xl" wx:if="{{!reg}}">
+			<form bindsubmit="userlogin">
+				<view class="cu-form-group round ">
+					<view class="title">账号：</view>
+					<input name='loginName' placeholder="输入账号" maxlength="12" value="{{Value}}"></input>
+					<button class="cu-btn bg-white cuIcon-attention text-white"></button>
+				</view>
+				<view class="cu-form-group round margin-top">
+					<view class="title">密码：</view>
+					<input name='loginPwd' placeholder="输入密码" password='{{pwd}}' maxlength="20" value="{{Value}}"></input>
+					<button class="cu-btn bg-gray cuIcon-{{pwd?'attentionfill':'attentionforbidfill'}} text-orange" bindtap="pwd"></button>
+				</view>
+				<view class="flex justify-end margin-top">
+					<button class="cu-btn bg-gray shadow" style="text-decoration:underline" bindtap="regbtn">注册账号
+						<text class="cuIcon-right"></text>
+					</button>
+				</view>
+				<view class="padding flex flex-direction ">
+					<button class="cu-btn bg-yellow lg shadow cuIcon-check" form-type="submit">立即登录</button>
+				</view>
+			</form>
+			<!-- 微信登录 -->
+			<view class="flex justify-start margin-top">其它登录方式 :</view>
+			<view class="padding flex flex-direction">
+				<button class="cu-btn bg-green lg shadow cuIcon-weixin" bindtap="wxlogin">微信登录</button>
+			</view>
+		</view>
+		<!-- 用户注册 -->
+		<view class="padding-xl" wx:else>
+			<form bindsubmit="register">
+				<view class="cu-form-group round ">
+					<view class="title">账号：</view>
+					<input name="regName" placeholder="输入账号" maxlength="12" value="{{Value}}"></input>
+					<button class="cu-btn bg-white cuIcon-attention text-white"></button>
+				</view>
+				<view class="cu-form-group round margin-top">
+					<view class="title">密码：</view>
+					<input name="regPwd" placeholder="输入密码" password='{{pwd}}' maxlength="20" value="{{Value}}"></input>
+					<button class="cu-btn bg-gray cuIcon-{{pwd?'attentionfill':'attentionforbidfill'}} text-orange" bindtap="pwd"></button>
+				</view>
+				<view class="cu-form-group round margin-top">
+					<view class="title">确认密码：</view>
+					<input name="regPwds" placeholder="输入密码" password='true' maxlength="20" value="{{Value}}"></input>
+					<button class="cu-btn bg-white cuIcon-attention text-white"></button>
+					<button class="cu-btn bg-white"></button>
+				</view>
+				<view class="padding flex flex-direction margin-top">
+					<button class="cu-btn bg-yellow lg shadow cuIcon-check margin-top" form-type="submit">完成注册</button>
+				</view>
+			</form>
+		</view>
+
+	</view>
+</view>
+
+<!-- 列表 -->
+<view class="about bg-gray ">
+	<view class="bg-white shadow-warp">
+		<view class="cuIcon-likefill text-red" bindtap="goCollect">
+			<text class="text-grey">查看收藏</text>
+		</view>
+		<view class="cuIcon-commentfill text-blue" bindtap="goComment">
+			<text class="text-grey">我的评论</text>
+		</view>
+	</view>
+	<view class="cu-list menu card-menu margin-top-xl shadow-lg radius">
+		<view class="cu-item arrow">
+			<navigator class="content" url="{{hasUserInfo?'/pages/about/share/share':'pages/about/home/home'}}" hover-class="none">
+				<text class="cuIcon-forwardfill text-grey"></text>
+				<text class="text-grey">分享记录</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="{{hasUserInfo?'/pages/about/log/log':'pages/about/home/home'}}" hover-class="none">
+				<text class="cuIcon-formfill text-green"></text>
+				<text class="text-grey">浏览足迹</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="{{hasUserInfo?'/pages/about/setting/setting':'pages/about/home/home'}}" hover-class="none">
+				<text class="cuIcon-settings text-red"></text>
+				<text class="text-grey">账号设置</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/about/text/text" hover-class="none">
+				<text class="cuIcon-creativefill text-orange"></text>
+				<text class="text-grey">关于</text>
+			</navigator>
+		</view>
+	</view>
+
+</view>

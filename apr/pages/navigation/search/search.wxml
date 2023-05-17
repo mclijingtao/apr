@@ -1,0 +1,47 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">搜索页</view>
+</cu-custom>
+
+<!-- 搜索框 -->
+<form bindsubmit="search">
+	<view class="cu-bar search bg-white">
+		<view class="search-form round">
+			<text class="cuIcon-search"></text>
+			<input type="text" name='search_value' value="{{value}}" placeholder="可输入动漫名、类型、年份、地区" confirm-type="search" focus="true"></input>
+		</view>
+		<view class="action">
+			<button class="cu-btn bg-green shadow-blur round" form-type="submit">搜索</button>
+		</view>
+	</view>
+</form>
+
+<!-- 搜索记录 -->
+<view class="old ">
+	<text class="cuIcon-time"> 搜索记录：</text>
+	<text class="cuIcon-delete fr" style="font-weight:400;font-size: 32rpx;" bindtap="clear"> 清除记录</text>
+	<view wx:for="{{search_log}}" wx:key="id">
+		<view class="cu-tag radius bg-green fl" bindtap="get_log" data-value="{{item}}">{{item}}</view>
+	</view>
+</view>
+
+<!-- 查询列表 -->
+<view class="cu-card article anime" style="{{haslog ? 'margin-top: 260rpx;':'margin-top: 170rpx;'}}">
+	<navigator class="cu-item shadow-warp anime-item" wx:for="{{anime_list}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+		<view class="title solid-bottom">
+			<view class="text-cut radiustitle ">{{item.anime_name}}</view>
+			<text class="cuIcon-roundright text-gray fr"></text>
+		</view>
+		<view class="content">
+			<image class="shadow-warp" src="{{item.anime_pic}}" mode="aspectFill"></image>
+			<view class="desc">
+				<view class="text-content">{{item.anime_content}}</view>
+				<view>
+					<view class="cu-tag bg-red sm round margin-right-xs">{{item.anime_type}}</view>
+					<view class="cu-tag bg-green sm round margin-right-xs">{{item.anime_time}}</view>
+					<view class="cu-tag bg-yellow  sm round">{{item.anime_district}}</view>
+				</view>
+			</view>
+		</view>
+	</navigator>
+</view>

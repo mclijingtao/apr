@@ -1,0 +1,27 @@
+.cu-timeline .cu-time{
+	width: 110rpx;
+	margin-left: 20rpx;
+}
+
+.cu-card>.cu-item{
+	margin: 0;
+	margin-top: 30rpx;
+}
+
+.cu-card.article>.cu-item .title {
+	margin-bottom: 20rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+}
+
+.cuIcon-roundright{
+	position: relative;
+	top:-75rpx;
+	left:  90%;
+	font-size: 36rpx;
+}
+
+.cu-card.article>.cu-item .content .shadow-warp,
+.cu-card.article>.cu-item .content .text-content{
+	height: 300rpx;
+}

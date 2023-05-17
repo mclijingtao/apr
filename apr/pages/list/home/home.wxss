@@ -1,0 +1,113 @@
+.cu-bar.search {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.cu-avatar {
+	background-color: transparent;
+	border-radius: 25%;
+}
+
+.scroll.nav{
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.scroll .cu-item.flex-sub{
+	margin-right:30rpx;
+}
+
+.leftnav{
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color:#fff;
+	width: 160rpx;
+	height: 100%;
+}
+
+.VerticalNav.nav {
+	white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+	margin: 0;
+	border: none;
+	height: 50px;
+	position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+	background-color: #f1f1f1;
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+	content: "";
+	width: 8rpx;
+	height: 30rpx;
+	border-radius: 10rpx 0 0 10rpx;
+	position: absolute;
+	background-color: currentColor;
+	top: 0;
+	right: 0rpx;
+	bottom: 0;
+	margin: auto;
+}
+
+.VerticalBox {
+	display: flex;
+}
+
+.VerticalMain {
+	margin-left: 160rpx;
+	background-color: #f1f1f1;
+}
+
+.anime{
+	max-width: 600rpx;
+}
+
+.anime .title {
+	margin: 0 40rpx;
+	padding: 0 !important;
+}
+
+.anime .title .text-cut {
+	height: 50px !important;
+	line-height: 50px;
+	font-size: 42rpx;
+	font-weight: 700 !important;
+	width: 80%;
+}
+
+.anime .title text {
+	font-size: 45rpx;
+	position: absolute;
+	top: -2rpx;
+	right: 0;
+}
+
+.cu-card .content {
+	padding-top: 3% !important;
+}
+
+.content image {
+	height: 155px !important;
+}
+
+.content .text-content {
+	height: 155px !important;
+}
+
+.last{
+	width: 100%;
+	height: 42px;
+}

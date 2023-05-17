@@ -1,0 +1,16 @@
+<view class='list-wrapper' style="margin-top: calc({{CustomBar}}px + 10rpx);">
+	<view x-scroll='false' class="list" style='transform: translateX( {{moveDistance}}rpx);' bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+
+		<navigator class="nav-item {{classArray[index] ? classArray[index] : ''}}" wx:for="{{list}}" data-index="{{index}}" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+			<image class='image' src='{{item.anime_pic}}' mode='aspectFill'></image>
+			<view class='info'>
+				<view class='title {{item.anime_name.length>9 ? "text-small" : ""}}'>{{item.anime_name}}</view>
+				<view class='type'>{{item.anime_district}} / {{item.anime_type}} / {{item.anime_time}}</view>
+			</view>
+		</navigator>
+	</view>
+</view>
+<view class='description-wrapper'>
+	<view class='item-title'>简介</view>
+	<text class='desciprtion'>{{list[currentIndex].anime_content}}</text>
+</view>

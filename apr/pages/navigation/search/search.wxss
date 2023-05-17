@@ -1,0 +1,64 @@
+form .cu-bar.search {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	box-shadow: 1rpx 0 2rpx rgb(218, 218, 218);
+}
+
+.old {
+	position: fixed;
+	left: 0;
+	left: 0;
+	width:100% ;
+	margin-top:45px ;
+	padding:20rpx  50rpx 20rpx;
+	z-index: 1;
+	background-color: #fff;
+	box-shadow: 1rpx 0 2rpx rgb(199, 199, 199);
+}
+
+.old text{
+	font-size: 36rpx;
+	font-weight: 700;
+	color:gray;
+}
+
+.old .cu-tag.radius{
+	min-width:90rpx ;
+	min-height: 60rpx;
+	margin: 20rpx 20rpx 0;
+}
+
+.anime .title{
+	margin:0 40rpx;
+	padding: 0!important;
+}
+
+.anime .title .text-cut{
+	height: 50px !important;
+	line-height: 50px;
+	font-size: 42rpx;
+	font-weight:700 !important;
+	width: 80%;
+}
+
+.anime .title text{
+	font-size:45rpx ;
+	position: absolute;
+	top:-2rpx;
+	right: 0;
+}
+
+.cu-card .content {
+	padding-top: 3% !important;
+}
+
+.content image{
+	height: 155px !important;
+}
+
+.content .text-content {
+	height: 130px !important;
+}
+

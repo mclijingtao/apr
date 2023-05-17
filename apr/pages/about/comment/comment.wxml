@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">查看评论</view>
+</cu-custom>
+
+<!-- 评论列表 -->
+<block wx:if="{{hasList}}">
+	<view class="cu-timeline" wx:for="{{list}}" wx:key="{{index}}">
+		<view class="cu-time" wx:if="{{index == 0 || list[index].comment_time != list[index - 1].comment_time}}">{{item.comment_time}}</view>
+		<view class="cu-item">
+			<view class="content">
+				<view class="bg-white padding-sm radius text-xl text-black">{{item.comment_content}}</view>
+				<view class="cu-card article">
+					<navigator class="cu-item shadow-warp" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+						<view class="title">
+							<view class="text-cut text-gray radiustitle solid-bottom">{{item.anime_name}}</view>
+							<text class="cuIcon-roundright text-gray"></text>
+						</view>
+						<view class="content">
+							<image class="shadow-warp" src="{{item.anime_pic}}" mode="aspectFill"></image>
+							<view class="desc">
+								<view class="text-content text-gray">{{item.anime_content}}</view>
+							</view>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view class="cu-timeline">
+		<view class="cu-time"> </view>
+		<view class="cu-item">
+			<view class="content">
+				<view class="cu-bar justify-center margin padding">
+					<view class="action sub-title margin">
+						<text class="text-xl text-bold text-green">暂无评论</text>
+						<text class="bg-green" style="width:4rem"></text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>

@@ -1,0 +1,94 @@
+<!-- 导航栏 -->
+<view class="cu-bar search bg-gradual-green" style="height:calc({{CustomBar}}px + 20rpx);padding-top:calc({{StatusBar}}px - 20rpx);">
+	<view class="cu-avatar round" style="background-image:url(/image/logo.ico);"></view>
+	<view class="search-form round" style="margin-right: 210rpx;">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="搜索动漫" disabled="disabled" bindtap="tosearch"></input>
+	</view>
+</view>
+
+<!-- 轮播图 -->
+<view class="tower-swiper solid-bottom" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd" style="top: calc({{CustomBar}}px + 20rpx);">
+	<navigator class="tower-item {{item.zIndex==1?'none':''}}" wx:for="{{swiperList}}" wx:key="id" style="--index:{{item.zIndex}};--left:{{item.mLeft}}" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+		<view class="swiper-item">
+			<image src="{{item.anime_pic}}" mode="aspectFill"></image>
+		</view>
+	</navigator>
+</view>
+
+<!-- 榜单列表 -->
+<view class="cu-card article" style="margin-top:180rpx;" wx:if="{{list.length>0}}">
+	<view class="cu-item shadow">
+		<view class="title">
+			<view class="text-cut cuIcon-upstage radiustitle text-pink"> 最新动漫榜单
+				<button class="fr cu-btn round lines-black" data-id="1" bindtap="gopage">
+				查看更多
+				<text class="cuIcon-roundright text-gray"></text>
+				</button>
+			</view>
+		</view>
+		<view class="flex flex-wrap">
+			<navigator class="box flex-sub shadow" wx:for="{{list[0]}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+				<image src="{{item.anime_pic}}" mode="aspectFill"></image>
+				<view class="text-cut">{{item.anime_name}}</view>
+			</navigator>
+		</view>
+	</view>
+</view>
+
+<view class="cu-card article" wx:if="{{list.length>0}}">
+	<view class="cu-item shadow">
+		<view class="title">
+			<view class="text-cut cuIcon-upstage radiustitle text-blue"> 中国动漫榜单
+				<button class="fr cu-btn round lines-black" data-id="2" bindtap="gopage">
+					查看更多
+					<text class="cuIcon-roundright text-gray"></text>
+				</button>
+			</view>
+		</view>
+		<view class="flex flex-wrap">
+			<navigator class="box flex-sub shadow" wx:for="{{list[1]}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+				<image src="{{item.anime_pic}}" mode="aspectFill"></image>
+				<view class="text-cut">{{item.anime_name}}</view>
+			</navigator>
+		</view>
+	</view>
+</view>
+
+<view class="cu-card article" wx:if="{{list.length>0}}">
+	<view class="cu-item shadow">
+		<view class="title">
+			<view class="text-cut cuIcon-upstage radiustitle text-red"> 日本动漫榜单
+				<button class="fr cu-btn round lines-black" data-id="3" bindtap="gopage">
+					查看更多
+					<text class="cuIcon-roundright text-gray"></text>
+				</button>
+			</view>
+		</view>
+		<view class="flex flex-wrap">
+			<navigator class="box flex-sub shadow" wx:for="{{list[2]}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+				<image src="{{item.anime_pic}}" mode="aspectFill"></image>
+				<view class="text-cut">{{item.anime_name}}</view>
+			</navigator>
+		</view>
+	</view>
+</view>
+
+<view class="cu-card article last" wx:if="{{list.length>0}}">
+	<view class="cu-item shadow">
+		<view class="title">
+			<view class="text-cut cuIcon-upstage radiustitle text-yellow"> 欧美动漫榜单
+				<button class="fr cu-btn round lines-black" data-id="4" bindtap="gopage">
+					查看更多
+					<text class="cuIcon-roundright text-gray"></text>
+				</button>
+			</view>
+		</view>
+		<view class="flex flex-wrap">
+			<navigator class="box flex-sub shadow" wx:for="{{list[3]}}" wx:key="id" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+				<image src="{{item.anime_pic}}" mode="aspectFill"></image>
+				<view class="text-cut">{{item.anime_name}}</view>
+			</navigator>
+		</view>
+	</view>
+</view>

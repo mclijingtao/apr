@@ -1,0 +1,13 @@
+.cu-bar {
+	height: 120rpx;
+}
+
+.cu-dialog {
+	top: -120rpx;
+}
+
+.cu-dialog input {
+	height: 70rpx;
+	font-size: 36rpx;
+	border-bottom: 1rpx solid gray;
+}

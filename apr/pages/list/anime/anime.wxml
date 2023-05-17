@@ -1,0 +1,124 @@
+<cu-custom bgColor="bg-gradual-green" isCustom="{{true}}">
+	<view slot="content" class="text-cut">{{title}}</view>
+</cu-custom>
+
+<!-- head -->
+<view class="cu-card article no-card">
+	<view class="cu-item ">
+		<view class="content shadow">
+			<image src="{{anime.anime_pic}}" mode="aspectFill" class="shadow"></image>
+			<view class="desc">
+				<view class="name">
+					<text class="cuIcon-titles text-lg text-blue "></text>
+					<view class="fr">{{anime.anime_name}}</view>
+				</view>
+				<view class="box">
+					<view class="cu-capsule radius">
+						<view class="cu-tag bg-yellow ">
+							<text>地区</text>
+						</view>
+						<view class="cu-tag line-yellow">{{anime.anime_district}}</view>
+					</view>
+					<view class="cu-capsule radius">
+						<view class="cu-tag bg-red ">
+							<text>类型</text>
+						</view>
+						<view class="cu-tag line-red">{{anime.anime_type}}</view>
+					</view>
+					<view class="cu-capsule radius">
+						<view class="cu-tag bg-green ">
+							<text>年份</text>
+						</view>
+						<view class="cu-tag line-green">{{anime.anime_time}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="text">
+			<view>简介：</view>{{anime.anime_content}}
+		</view>
+	</view>
+</view>
+
+<!-- 操作栏 -->
+<view class="padding flex text-center bg-white shadow-warp">
+
+	<!-- 评分 -->
+	<view class="flex flex-sub flex-direction solid-right" bindtap="score">
+		<view class="{{hasScore?'cuIcon-favorfill text-orange' : 'cuIcon-favor'}} ico"></view>
+		<view class="text text-gray text-xl">{{anime.anime_score}} 星
+		</view>
+	</view>
+
+	<!-- 收藏 -->
+	<view class="flex flex-sub flex-direction solid-right" bindtap="collect">
+		<view class="{{hasCollect?'cuIcon-likefill text-red' : 'cuIcon-like'}}  ico"></view>
+		<view class="text text-gray text-xl">{{state[0][0].collect_count}}</view>
+	</view>
+
+	<!-- 分享 -->
+	<view class="flex flex-sub align-center justify-center" bindtap="share">
+		<button open-type="share" class="cu-btn flex-direction  bg-white">
+			<view class="{{hasShare?'cuIcon-forwardfill text-green' : 'cuIcon-forward'}}  ico"></view>
+			<view class="text text-gray text-xl">{{state[1][0].share_count}}</view>
+		</button>
+	</view>
+</view>
+
+<!-- 评分modal -->
+<view class="cu-modal {{modal?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">评分</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="flex justify-center align-center">
+			<view class="box" wx:for="{{5}}" wx:key="id" data-id="{{index}}" bindtap="core">
+				<view class="{{index <= core ?'cuIcon-favorfill':'cuIcon-favor'}} text-orange"></view>
+			</view>
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action">
+				<button class="cu-btn bg-green margin-right" bindtap="goScore">确定</button>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 评论 -->
+<view class="margin dynamic " wx:if="{{comment.length>0}}">
+	<view class="cu-item shadow">
+		<view class="cu-list menu-avatar comment shadow-lg " wx:for="{{comment}}" wx:key="id">
+			<view class="cu-item solid-bottom ">
+				<view class="cu-avatar round" style="background-image:url({{item.head}});"></view>
+				<view class="content">
+					<view class="text-grey">{{item.user_name}}</view>
+					<view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+						<view class="flex-sub">{{item.comment_content}}</view>
+					</view>
+					<view class="margin-top-sm flex justify-between">
+						<view class="text-gray text-df">{{item.comment_time}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{userInfo.id}}" class="bg"></view>
+	</view>
+</view>
+<view wx:else class="cu-bar justify-center bg-white margin " style="padding: 100rpx;">
+	<view class="action sub-title">
+		<text class="text-xxl text-bold text-green">暂无评论</text>
+		<text class="bg-green" style="width:6rem"></text>
+	</view>
+</view>
+
+<!-- 评论输入框 -->
+<view wx:if="{{userInfo.id}}" class="cu-bar input foot">
+	<form bindsubmit="comment">
+		<view class="cu-avatar round" style="background-image:url({{userInfo.head}}); "></view>
+		<textarea class="textarea" maxlength="200" cursor-spacing="10" value="{{value}}" name='comment' auto-height></textarea>
+		<button class="cu-btn bg-green shadow-blur" form-type="submit">评论</button>
+	</form>
+</view>

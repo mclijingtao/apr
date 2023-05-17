@@ -1,0 +1,25 @@
+<!-- 主要组件页面 -->
+<navigation wx:if="{{pageNav=='navigationPage'}}" bind:gopage="gopage"></navigation>
+<list wx:if="{{pageNav=='listPage'}}" cur="{{cur}}"></list>
+<recommended wx:if="{{pageNav=='recommendedPage'}}"></recommended>
+<about wx:if="{{pageNav=='aboutPage'}}"></about>
+
+<!--tabber-->
+<view class="cu-bar tabbar bg-black shadow foot">
+	<view class="action {{pageNav=='navigationPage'?'text-green add-action':'text-gray'}}" bindtap="changeNav" data-nav="navigationPage">
+		<button class="cu-btn {{pageNav=='navigationPage'?'cuIcon-homefill bg-green':'cuIcon-home bg-black'}}"></button>
+		首页
+	</view>
+	<view class="action {{pageNav=='listPage'?'text-green add-action':'text-gray'}}" bindtap="changeNav" data-nav="listPage">
+		<button class="cu-btn {{pageNav=='listPage'?'cuIcon-similar bg-green':'cuIcon-similar bg-black'}}"></button> 
+		分类
+	</view>
+	<view class="action {{pageNav=='recommendedPage'?'text-green add-action':'text-gray'}} " bindtap="changeNav" data-nav="recommendedPage">
+		<button class="cu-btn {{pageNav=='recommendedPage'?'cuIcon-choicenessfill bg-green':'cuIcon-choiceness bg-black'}}"></button>
+		推荐
+	</view>
+	<view class="action {{pageNav=='aboutPage'?'text-green add-action':'text-gray'}}" bindtap="changeNav" data-nav="aboutPage">
+		<button class="cu-btn {{pageNav=='aboutPage'?'cuIcon-myfill bg-green':'cuIcon-my bg-black'}}"></button>
+		主页
+	</view>
+</view>

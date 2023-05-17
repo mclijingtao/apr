@@ -1,0 +1,112 @@
+page{
+	background-color: rgba(179, 178, 178, 0.644);
+}
+
+.cu-card .cu-item {
+	padding-top: 3%;
+}
+
+.cu-card .cu-item .content image {
+	height: 300rpx !important;
+	width: 36% !important;
+}
+
+.cu-card.article>.cu-item .content .desc{
+	justify-content:space-evenly;
+}
+
+.cu-card  .desc .name{
+	font-size: 42rpx ;
+	line-height: 60rpx;
+}
+.cu-card .desc .name .fr{
+	width: 185px;
+}
+
+.cu-capsule.radius{
+	width: 160rpx;
+	margin:15rpx 25rpx;
+}
+
+.text{
+	margin:20rpx 30rpx 0;
+}
+
+.text view{
+	float: left;
+	margin: 5rpx ;
+	font-size: 42rpx;
+	font-weight: 700;
+	color: grey;	
+}
+
+.flex.text-center .flex .bg-white{
+	width: 90%;
+	height: 100%;
+}
+
+.flex.text-center .ico{
+	font-size: 62rpx;
+}
+
+.cu-modal .cu-dialog .box{
+	margin: 50rpx 20rpx;
+	font-size: 72rpx;
+}
+
+.input{
+	position: relative;
+	padding:20rpx;
+}
+
+.input .cu-avatar{
+	position: absolute;
+	top: 10rpx;
+	left: 10rpx;
+	width: 100rpx;
+	height: 100rpx;
+	background-size: 80rpx 80rpx;
+	background-repeat: no-repeat;
+}
+
+.input .textarea{
+	padding: 5rpx 20rpx;
+	width: 55vw;
+	margin:5rpx 140rpx 5rpx;
+	font-size:42rpx;
+	line-height:42rpx;
+	min-height: 70rpx;
+	background-color:rgb(226, 226, 226);
+	border-radius: 15rpx;
+}
+
+.input .cu-btn{
+	position: absolute;
+	bottom: 30rpx;
+	right: 30rpx;
+}
+
+.dynamic{
+	margin-top: 50rpx;
+}
+
+.dynamic .cu-list{
+	border-radius: 15rpx;
+}
+
+.dynamic .cu-list .cu-item{
+	padding-top: 45rpx !important;
+}
+
+.dynamic .cu-avatar.round {
+	width: 80rpx;
+	height: 80rpx;
+	background-size: 60rpx 60rpx;
+	background-repeat: no-repeat;
+	margin-top: -15rpx;
+}
+
+.dynamic .bg {
+	width: 100%;
+	height: 80px;
+}

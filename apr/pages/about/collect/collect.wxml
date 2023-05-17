@@ -1,0 +1,49 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">查看收藏</view>
+</cu-custom>
+
+<!-- 收藏列表 -->
+<block wx:if="{{hasList}}">
+	<view class="cu-timeline" wx:for="{{list}}" wx:key="{{index}}">
+		<view class="cu-time" wx:if="{{index == 0 || list[index].collect_time != list[index - 1].collect_time}}">{{item.collect_time}}</view>
+		<view class="cu-item">
+			<view class="content">
+				<view class="cu-card article anime">
+					<navigator class="cu-item shadow-warp anime-item" url="/pages/list/anime/anime?anime_id={{item.anime_id}}&anime_name={{item.anime_name}}">
+						<view class="title">
+							<view class="text-cut radiustitle ">{{item.anime_name}}</view>
+							<text class="cuIcon-roundright text-gray fr"></text>
+						</view>
+						<view class="content">
+							<image class="shadow-warp" src="{{item.anime_pic}}" mode="aspectFill"></image>
+							<view class="desc">
+								<view class="text-content">{{item.anime_content}}</view>
+								<view>
+									<view class="cu-tag bg-red sm round">{{item.anime_type}}</view>
+									<view class="cu-tag bg-green sm round">{{item.anime_time}}</view>
+									<view class="cu-tag bg-yellow  sm round">{{item.anime_district}}</view>
+								</view>
+							</view>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view class="cu-timeline">
+		<view class="cu-time"> </view>
+		<view class="cu-item">
+			<view class="content">
+				<view class="cu-bar justify-center margin padding">
+					<view class="action sub-title margin">
+						<text class="text-xl text-bold text-green">暂无评论</text>
+						<text class="bg-green" style="width:4rem"></text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>
